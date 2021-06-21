@@ -1,26 +1,29 @@
 
-use crate::memory::Memory;
-
-
-const MAP_ROM_BEGIN: u16 = 0x200;
+use crate::chip8;
 
 
 pub struct Cpu {
-    ram: Memory,
+    // 16 8-bit general registers
+    vx: [u8; 16],
+
+    // 16-bit address register
+    i: u16,
+
+    // 16-bit program counter
+    pc: u16,
 }
 
 
 impl Cpu {
     pub fn new () -> Cpu {
         Cpu {
-            ram: Memory::new()
+            vx: [0; 16],
+            i: 0x0,
+            pc: chip8::MAP_ROM_BEGIN,
         }
     }
 
-    pub fn load_rom (&mut self, rom: &Vec<u8>) {
-        for (i, &byte) in rom.iter().enumerate() {
-            let offset = MAP_ROM_BEGIN;
-            self.ram.write_byte(offset + i as u16, byte);             
-        }
+    pub fn execute (&mut self, ram: &mut Vec<u8>) {
+
     }
 }
