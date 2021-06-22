@@ -1,5 +1,6 @@
 
 use crate::chip8;
+use crate::memory::Memory;
 
 
 pub struct Cpu {
@@ -23,7 +24,14 @@ impl Cpu {
         }
     }
 
-    pub fn execute (&mut self, ram: &mut Vec<u8>) {
+    pub fn execute (&mut self, ram: &mut Memory) {
+        let low  = ram.read_byte(self.pc);
+        let high = ram.read_byte(self.pc + 1);
 
+        let instruction = (low as u16) << 8 | (high as u16);
+
+        println!("pc = {}, instr = {:#X}", self.pc, instruction);
+
+        self.pc += 2;
     }
 }

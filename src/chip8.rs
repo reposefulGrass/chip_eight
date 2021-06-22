@@ -28,6 +28,6 @@ impl Chip8 {
     }
 
     pub fn step_instruction (&mut self) {
-        self.cpu.execute(self.ram);
+        self.cpu.execute(&mut self.ram);
     }
 }

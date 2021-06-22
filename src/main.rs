@@ -10,7 +10,7 @@ use chip8::Chip8;
 
 
 fn main () {
-    let data = fs::read("roms/games/Space Invaders [David Winter].ch8")
+    let data = fs::read("../roms/games/Space Invaders [David Winter].ch8")
         .unwrap();
 
     let mut chip8 = Chip8::new();

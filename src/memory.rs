@@ -46,15 +46,17 @@ impl Memory {
     }
 
     pub fn write_byte (&mut self, address: u16, value: u8) {
+        //println!("Address: {:#X}", address);
         if !self.within_bounds(address) {
             panic!("Address not within RAM boundary.");    
         }
 
-        println!("Writing 0x{:02X} into address 0x{:04X}", value, address);
+        //println!("Writing 0x{:02X} into address 0x{:04X}", value, address);
         self.memory[address as usize] = value;
     }
 
     pub fn read_byte (&mut self, address: u16) -> u8 {
+        //println!("Address: {:#X}", address);
         if !self.within_bounds(address) {
             panic!("Address not within RAM boundary.");    
         }
