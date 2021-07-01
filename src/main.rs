@@ -1,9 +1,12 @@
 
 #![allow(unused_variables)]
+#![allow(dead_code)]
 
 mod memory;
 mod cpu;
 mod chip8;
+mod instruction;
+mod types;
 
 use std::fs;
 use chip8::Chip8;
